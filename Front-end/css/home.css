@@ -1,0 +1,83 @@
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 74.4vh;
+    padding-left: 96px;
+    padding-right: 96px;
+
+}
+
+.titulos {
+    margin-bottom: 44px;
+}
+
+.title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 4rem;
+
+}
+
+.curso-roxo {
+    color: #3347B0;
+    font-weight: 700;
+}
+
+.area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 400px;
+    height: 200px;
+    background-color: #3347B0;
+    box-shadow: 12px 12px 4px rgba(51, 71, 176, 0.5);
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+.image-figure {
+    width: 96px;
+    height: 76.79px;
+}
+
+.nome-curso {
+    font-weight: 700;
+    font-size: 64px;
+}
+
+.area:hover {
+    border: 1.5px solid black;
+}
+
+
+
+@media (max-width: 640px) {
+
+    .home {
+        padding-left: 15px;
+        padding-right: 0px;
+        display: grid;
+        height: 100%;
+        justify-items: center;
+        align-items: center;
+        gap: 100px;
+    }
+
+    .estudante {
+        display: none;
+    }
+
+    .area {
+        margin-bottom: 85px;
+        width: auto;
+    }
+
+    .aparelhos {
+        width: 280px;
+        align-items: center;
+    }
+}

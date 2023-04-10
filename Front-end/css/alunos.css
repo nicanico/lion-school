@@ -1,0 +1,214 @@
+.alunos {
+    display: none;
+    flex-direction: column;
+    place-content: start;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.input-ano__container {
+    height: 0.5vh;
+    width: 14vw;
+}
+
+.input-ano__container button {
+    background-color: #3347B0;
+    cursor: pointer;
+    color: #BCC2E5;
+    width: 30px;
+    height: 25px;
+    border: none;
+    size: 25px;
+    font-weight: bold;
+}
+
+.input-ano__container input {
+    width: 75px;
+    height: 25px;
+    padding-left: 5px;
+    background-color: #3347B0;
+    color: white;
+}
+
+.alunos div {
+    place-items: center;
+}
+
+.filtro {
+    width: 100%;
+    height: 50px;
+    background: #BCC2E5;
+    display: none;
+    justify-content: space-between;
+    padding-right: 96px;
+    padding-left: 96px;
+}
+
+.pesquisa_legenda {
+    display: flex;
+    align-self: center;
+}
+
+.legenda {
+    display: flex;
+    gap: 24px;
+}
+
+.color-cursando {
+    width: 20px;
+    height: 20px;
+    background: #3347B0;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+}
+
+.color-finalizado {
+    width: 20px;
+    height: 20px;
+    background: #E5B657;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+}
+
+.cursando,
+.finalizado {
+    display: flex;
+    gap: 12px;
+}
+
+.title-len,
+.cursando>span,
+.finalizado>span {
+    font-size: 16px;
+    color: #3347B0;
+    font-weight: 700;
+}
+
+.titulo-curso {
+    text-align: center;
+    color: #3347B0;
+    font-size: 3rem;
+    padding: 10px;
+}
+
+.alunos-turma {
+    width: auto;
+    height: auto;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: grid;
+    margin-top: 6rem;
+    margin-bottom: 12rem;
+}
+
+.aluno-turma {
+    width: 200px;
+    height: 300px;
+    background: #3347B0;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.aluno-turma img {
+    width: 200px;
+    height: 200px;
+}
+
+.aluno-turma p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.aluno-turma:hover {
+    border: 1px solid black;
+}
+
+/*dropdown*/
+.dropbtn {
+    background-color: #3347B0;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.input-ano {
+    width: 150px;
+}
+
+@media (max-width: 640px) {
+
+    .alunos {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title-len {
+        display: none;
+    }
+
+    .filtro {
+        padding-right: 0px;
+        padding-left: 0px;
+        flex-direction: column;
+        align-self: center;
+        justify-content: space-evenly;
+        height: 210px;
+    }
+
+    .pesquisa_legenda {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input-ano__container {
+        height: 5.5vh;
+        width: 32vw;
+    }
+
+    .legenda {
+        display: flex;
+        gap: 14px;
+    }
+
+    .titulo-curso {
+
+        font-size: 2.5rem;
+
+    }
+}

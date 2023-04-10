@@ -1,0 +1,99 @@
+body {
+
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    padding-left: 96px;
+    padding-right: 96px;
+    width: 100%;
+    height: 100px;
+    background-color: #3347B0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main {
+    height: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.nome-escola,
+.exit {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+footer {
+    width: 100%;
+    height: 148px;
+    padding-left: 96px;
+    padding-right: 96px;
+    background-color: #3347B0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.telefone,
+.email,
+.rua {
+    display: flex;
+    gap: 10px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.autores {
+    color: #ffffff;
+}
+
+.social-media {
+    display: flex;
+    gap: 10px;
+}
+
+.youtube,
+.twitter,
+.instagram,
+.facebook {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    border: solid 1px #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 640px) {
+    header {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    main {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    footer {
+        display: grid;
+        gap: 50px;
+        justify-items: center;
+        height: auto;
+        width: auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+}

@@ -1,0 +1,165 @@
+/* main {
+    height: 80vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+} */
+.alno {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 6rem;
+    margin-bottom: 12rem;
+}
+
+.aluno-info__container {
+    height: 51vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 12px #000;
+
+}
+
+.aluno-info__container img {
+    height: 41.2vh;
+}
+
+.aluno-info__container p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.aluno-disciplinas__container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 51vh;
+    width: 61vw;
+    box-shadow: 0px 0px 12px #000000;
+}
+
+.disciplina__container-aprovado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.disciplina__container-aprovado span {
+    font-weight: 700;
+    font-family: 'Poppins';
+    color: #3347b0;
+}
+
+.disciplina__container-aprovado p {
+    font-weight: 700;
+    font-family: 'Poppins';
+    color: #3347b0;
+}
+
+.nota__container {
+    height: 30.9vh;
+    width: 0.8vw;
+    background: #EEEFF8;
+    display: flex;
+}
+
+.nota-aprovado {
+    height: 90%;
+    width: 100%;
+    align-self: flex-end;
+    background: #3347b0;
+    box-shadow: 0px 0px 24px #3347b0;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.disciplina__container-reprovado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.disciplina__container-reprovado span {
+    font-weight: 700;
+    font-family: 'Poppins';
+    color: #C11010;
+}
+
+.disciplina__container-reprovado p {
+    font-weight: 700;
+    font-family: 'Poppins';
+    color: #C11010;
+}
+
+.nota-reprovado {
+    height: 30%;
+    width: 100%;
+    align-self: flex-end;
+    background: #C11010;
+    box-shadow: 0px 0px 24px #C11010;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.disciplina__container-exame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.disciplina__container-exame span {
+    font-weight: 700;
+    font-family: 'Poppins';
+    color: #E5B657;
+}
+
+.disciplina__container-exame p {
+    font-weight: 700;
+    font-family: 'Poppins';
+    color: #E5B657;
+}
+
+.nota-exame {
+    height: 50%;
+    width: 100%;
+    align-self: flex-end;
+    background: #E5B657;
+    box-shadow: 0px 0px 24px #E5B657;
+    border-radius: 4px 4px 0px 0px;
+}
+
+
+
+@media (max-width: 640px) {
+    .aluno-info__container {
+        height: 35vh;
+        width: 35vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 12px #000;
+    }
+
+    .alno {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
+    }
+
+    .aluno-disciplinas__container {
+        height: 45vh;
+        width: 85vw;
+        margin-bottom: 25px;
+    }
+}
