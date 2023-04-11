@@ -86,8 +86,6 @@ const criarDadosDoAluno = (dadosAlun) => {
     nomeDoAluno.classList.add('nome-aluno')
     nomeDoAluno.textContent = dadosAlun.nome
 
-    console.log(dadosAlun.disciplinas)
-
     divAluno.append(imageAluno, nomeDoAluno)
 
     return divAluno
@@ -124,6 +122,9 @@ const graficoMedia = async (matricula) => {
     let nomeDisciplinas = []
     let letrasDisciplinas = []
     let siglaDisciplinas = []
+    let arraySiglas = []
+
+
 
     let dadosAlun = await dadosAluno(matricula)
     let aluno = dadosAlun.aluno
@@ -134,26 +135,31 @@ const graficoMedia = async (matricula) => {
             let nomes = dis.nome
             nomeDisciplinas.push(nomes)
             let nome = nomes.split('')
-
             letrasDisciplinas.push(nome)
-
-            letrasDisciplinas.forEach(function (letra) {
-                const siglaDasDisciplinas = letra.filter(function (letraArray) {
-                    if (letraArray === letraArray.toLowerCase()) {
-                        letra.splice(letra.indexOf(letraArray), 1)
-                        return letra
-                    }
-                });
-            })
         })
     })
 
-    letrasDisciplinas.forEach(function (array) {
+    letrasDisciplinas.forEach(function (letra) {
+        const siglaDasDisciplinas = letra.filter(function (letraArray) {
+            if (letraArray === letraArray.toUpperCase() && letraArray != ' ') {
+                console.log(letraArray)
+                let len = letraArray
+                let array = []
+                console.log(array)
+                return array.push(len)
+            }
+        })
+        console.log(siglaDasDisciplinas)
+        console.log(arraySiglas.push(siglaDasDisciplinas))
+    })
+
+    console.log(arraySiglas)
+
+
+    arraySiglas.forEach(function (array) {
         const siglas = array.reduce((accumulator, letra) => `${accumulator}${letra}`);
         siglaDisciplinas.push(siglas)
     })
-
-    console.log(siglaDisciplinas)
 
     aluno.forEach(function (alun) {
         alun.disciplinas.forEach(function (dis) {
@@ -168,10 +174,7 @@ const graficoMedia = async (matricula) => {
                 let color = 'rgba(135, 206, 250, 1)'
                 coresGrafico.push(color)
             }
-
             notasMedia.push(media)
-
-
         })
     });
 
@@ -338,6 +341,5 @@ const sairEVoltarPagina = (estado) => {
     }
 }
 
-
 carregarCurso()
-sairEVoltarPagina(sair)
+
