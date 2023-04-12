@@ -66,7 +66,7 @@ const criarAluno = (alunosCurso, indice) => {
     divAluno.append(cardAluno)
     divAluno.onclick = () => {
         let matricula = alunosCurso.matricula
-        carregarAluno(indice, matricula)
+        carregarAluno(matricula)
     }
 
     return divAluno
@@ -91,7 +91,7 @@ const criarDadosDoAluno = (dadosAlun) => {
     return divAluno
 }
 
-const carregarAluno = async (indice, matricula) => {
+const carregarAluno = async (matricula) => {
 
 
     const alunos = document.getElementById('alunos')
@@ -119,12 +119,9 @@ const graficoMedia = async (matricula) => {
 
     let notasMedia = []
     let coresGrafico = []
-    let nomeDisciplinas = []
     let letrasDisciplinas = []
     let siglaDisciplinas = []
     let arraySiglas = []
-
-
 
     let dadosAlun = await dadosAluno(matricula)
     let aluno = dadosAlun.aluno
@@ -133,7 +130,7 @@ const graficoMedia = async (matricula) => {
         alun.disciplinas.forEach(function (dis) {
             console.log(dis.nome)
             let nomes = dis.nome
-            nomeDisciplinas.push(nomes)
+
             let nome = nomes.split('')
             letrasDisciplinas.push(nome)
         })
@@ -142,19 +139,15 @@ const graficoMedia = async (matricula) => {
     letrasDisciplinas.forEach(function (letra) {
         const siglaDasDisciplinas = letra.filter(function (letraArray) {
             if (letraArray === letraArray.toUpperCase() && letraArray != ' ') {
-                console.log(letraArray)
-                let len = letraArray
-                let array = []
-                console.log(array)
-                return array.push(len)
+
+                let letter = letraArray
+                let arrayLetter = []
+                return arrayLetter.push(letter)
             }
         })
-        console.log(siglaDasDisciplinas)
-        console.log(arraySiglas.push(siglaDasDisciplinas))
+
+        arraySiglas.push(siglaDasDisciplinas)
     })
-
-    console.log(arraySiglas)
-
 
     arraySiglas.forEach(function (array) {
         const siglas = array.reduce((accumulator, letra) => `${accumulator}${letra}`);
@@ -213,8 +206,6 @@ const carregarAlunos = async (sigla, titulo) => {
     let cursando = document.getElementById('cursando')
 
 
-    const ano = document.getElementById('button-ano')
-
     const alunos = document.getElementById('alunos')
 
     const tituloPage = document.createElement('h1')
@@ -249,27 +240,6 @@ const carregarAlunos = async (sigla, titulo) => {
 
     }
 
-    cursando.onclick = async () => {
-        const turma = document.getElementById('turma')
-        const statusAluno = await statusAlunoLion('Cursando')
-        const alunoStatus = statusAluno.alunos
-
-        const cardAluno = alunoStatus.map(function (aluno) {
-            if (aluno.sigla == sigla) {
-                const card = criarAluno(aluno)
-                return card
-            }
-        })
-
-        const CardAlunoCursando = cardAluno.filter(function (alunoCursando) {
-            return alunoCursando !== undefined;
-        });
-
-        turma.replaceChildren(...CardAlunoCursando)
-        alunos.append(tituloPage, turma)
-
-    }
-
     status.onclick = () => {
         const cardAluno = alunosCurso.map(criarAluno)
         turma.replaceChildren(...cardAluno)
@@ -281,6 +251,7 @@ const carregarAlunos = async (sigla, titulo) => {
         if (e.key === 'Enter') {
 
             const alunos1 = await alunosPorAno(input.value, sigla)
+
             const alunosAno = alunos1.alunos
             const alunoNovo = alunosAno.map((aluno) => {
                 const cardAluno = criarAluno(aluno)
@@ -292,6 +263,9 @@ const carregarAlunos = async (sigla, titulo) => {
         }
     })
 
+
+
+    const ano = document.getElementById('button-ano')
     ano.onclick = async () => {
 
         const alunos1 = await alunosPorAno(input.value, sigla)
@@ -308,6 +282,43 @@ const carregarAlunos = async (sigla, titulo) => {
 
     turma.replaceChildren(...cardAluno)
     alunos.append(tituloPage, turma)
+
+    cursando.onclick = async () => {
+        const turma = document.getElementById('turma')
+        const statusAluno = await statusAlunoLion('Cursando')
+        const alunoStatus = statusAluno.alunos
+
+        const cardAluno = alunoStatus.map(function (aluno) {
+            if (aluno.sigla == sigla) {
+                const card = criarAluno(aluno)
+                return card
+            }
+        })
+
+        const CardAlunoCursando = cardAluno.filter(function (alunoCursando) {
+            return alunoCursando !== undefined;
+        })
+
+
+        if (input.value != '' && input.value != ' ') {
+            const alunos1 = await alunosPorAno(input.value, sigla)
+            const alunosAno = alunos1.alunos
+            console.log(alunosAno)
+
+            const alunoNovo = alunosAno.map((aluno) => {
+                const cardAluno = criarAluno(aluno)
+                return cardAluno
+            })
+
+            turma.replaceChildren(...alunoNovo)
+            alunos.append(turma)
+        } else {
+            turma.replaceChildren(...CardAlunoCursando)
+            alunos.append(tituloPage, turma)
+        }
+
+
+    }
 }
 
 const carregarPagina = (indice) => {
