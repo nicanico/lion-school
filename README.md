@@ -1,1 +1,1 @@
-# front-end-lion-school
+# lion-school
