@@ -65,4 +65,3 @@ export const dadosAluno = async (matricula) => {
 }
 
 statusAlunoLion('Finalizado')
-alunosPorAno('2023', 'DS')

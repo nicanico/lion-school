@@ -284,7 +284,34 @@ const carregarAlunos = async (sigla, titulo) => {
     alunos.append(tituloPage, turma)
 
     cursando.onclick = async () => {
-        const turma = document.getElementById('turma')
+        
+    const turma = document.getElementById('turma')
+
+        if (input.value != '' && input.value != ' ') {
+
+            const alunos1 = await alunosPorAno(input.value, sigla)
+            const alunosAno = alunos1.alunos
+            console.log(alunosAno)
+            console.log(input.value)
+
+            const alunoNovo = alunosAno.map((aluno) => {
+                if(aluno.status == 'Cursando'){
+                    const cardAluno = criarAluno(aluno)
+                    console.log(aluno.status)
+                    return cardAluno
+                }
+                
+            })
+
+            const CardAlunoCursandoStatus = alunoNovo.filter(function (alunoCursando) {
+                return alunoCursando !== undefined;
+            })
+
+            turma.replaceChildren(...CardAlunoCursandoStatus)
+            alunos.append(turma)
+
+        } else {
+        
         const statusAluno = await statusAlunoLion('Cursando')
         const alunoStatus = statusAluno.alunos
 
@@ -299,20 +326,6 @@ const carregarAlunos = async (sigla, titulo) => {
             return alunoCursando !== undefined;
         })
 
-
-        if (input.value != '' && input.value != ' ') {
-            const alunos1 = await alunosPorAno(input.value, sigla)
-            const alunosAno = alunos1.alunos
-            console.log(alunosAno)
-
-            const alunoNovo = alunosAno.map((aluno) => {
-                const cardAluno = criarAluno(aluno)
-                return cardAluno
-            })
-
-            turma.replaceChildren(...alunoNovo)
-            alunos.append(turma)
-        } else {
             turma.replaceChildren(...CardAlunoCursando)
             alunos.append(tituloPage, turma)
         }
