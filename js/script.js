@@ -40,7 +40,7 @@ const carregarCurso = () => {
 
 }
 
-const criarAluno = (alunosCurso, indice) => {
+const criarAluno = (alunosCurso) => {
 
     const divAluno = document.createElement('div')
     divAluno.classList.add('aluno-turma')
