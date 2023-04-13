@@ -50,22 +50,23 @@ const criarAluno = (alunosCurso, indice) => {
 
     const imageAluno = document.createElement('img')
     imageAluno.classList.add('foto-aluno')
+    imageAluno.alt = 'icone do curso'
     imageAluno.src = `./img/${alunosCurso.foto}`
+    
 
     const nomeDoAluno = document.createElement('p')
     nomeDoAluno.classList.add('nome-aluno')
     nomeDoAluno.textContent = alunosCurso.nome
 
-
     if (alunosCurso.status == 'Finalizado') {
         divAluno.style.backgroundColor = '#E5B657'
-
     }
 
     cardAluno.append(imageAluno, nomeDoAluno)
     divAluno.append(cardAluno)
     divAluno.onclick = () => {
         let matricula = alunosCurso.matricula
+        console.log(matricula)
         carregarAluno(matricula)
     }
 
@@ -104,9 +105,11 @@ const carregarAluno = async (matricula) => {
     alun.style.display = 'flex'
     grafico.style.display = 'flex'
 
-    let dadosAlun = await dadosAluno(matricula)
-    let aluno = dadosAlun.aluno.map(criarDadosDoAluno)
-
+    
+    let dados = await dadosAluno(matricula)
+    let dadosAlun = dados.aluno
+    console.log(dadosAlun)
+    let aluno = dadosAlun.map(criarDadosDoAluno)
 
     graficoMedia(matricula)
 
@@ -284,34 +287,7 @@ const carregarAlunos = async (sigla, titulo) => {
     alunos.append(tituloPage, turma)
 
     cursando.onclick = async () => {
-        
-    const turma = document.getElementById('turma')
-
-        if (input.value != '' && input.value != ' ') {
-
-            const alunos1 = await alunosPorAno(input.value, sigla)
-            const alunosAno = alunos1.alunos
-            console.log(alunosAno)
-            console.log(input.value)
-
-            const alunoNovo = alunosAno.map((aluno) => {
-                if(aluno.status == 'Cursando'){
-                    const cardAluno = criarAluno(aluno)
-                    console.log(aluno.status)
-                    return cardAluno
-                }
-                
-            })
-
-            const CardAlunoCursandoStatus = alunoNovo.filter(function (alunoCursando) {
-                return alunoCursando !== undefined;
-            })
-
-            turma.replaceChildren(...CardAlunoCursandoStatus)
-            alunos.append(turma)
-
-        } else {
-        
+        const turma = document.getElementById('turma')
         const statusAluno = await statusAlunoLion('Cursando')
         const alunoStatus = statusAluno.alunos
 
@@ -328,7 +304,7 @@ const carregarAlunos = async (sigla, titulo) => {
 
             turma.replaceChildren(...CardAlunoCursando)
             alunos.append(tituloPage, turma)
-        }
+        
 
 
     }

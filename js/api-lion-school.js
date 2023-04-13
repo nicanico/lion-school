@@ -48,7 +48,7 @@ export const alunosPorAno = async (ano, sigla) => {
 
     const response = await fetch(url)
     const data = await response.json()
-    console.log(data.alunos)
+    
 
     return data
 }
@@ -60,8 +60,11 @@ export const dadosAluno = async (matricula) => {
     const response = await fetch(url)
     const data = await response.json()
     console.log(data.aluno)
+    
 
     return data
 }
 
 statusAlunoLion('Finalizado')
+dadosAluno('20151001001')
+alunosPorAno('2023', 'DS')
