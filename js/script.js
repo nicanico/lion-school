@@ -108,7 +108,6 @@ const carregarAluno = async (matricula) => {
     
     let dados = await dadosAluno(matricula)
     let dadosAlun = dados.aluno
-    console.log(dadosAlun)
     let aluno = dadosAlun.map(criarDadosDoAluno)
 
     graficoMedia(matricula)
@@ -223,6 +222,29 @@ const carregarAlunos = async (sigla, titulo) => {
     const turma = document.getElementById('turma')
     const cardAluno = alunosCurso.map(criarAluno)
 
+    cursando.onclick = async () => {
+        const turma = document.getElementById('turma')
+        const statusAluno = await statusAlunoLion('Cursando')
+        const alunoStatus = statusAluno.alunos
+
+        const cardAluno = alunoStatus.map(function (aluno) {
+            if (aluno.sigla == sigla) {
+                const card = criarAluno(aluno)
+                return card
+            }
+        })
+
+        const CardAlunoCursando = cardAluno.filter(function (alunoCursando) {
+            return alunoCursando !== undefined;
+        })
+
+            turma.replaceChildren(...CardAlunoCursando)
+            alunos.append(tituloPage, turma)
+        
+
+
+    }
+
     finalizado.onclick = async () => {
         let statusAluno = await statusAlunoLion('Finalizado')
         let alunoStatus = statusAluno.alunos
@@ -286,28 +308,7 @@ const carregarAlunos = async (sigla, titulo) => {
     turma.replaceChildren(...cardAluno)
     alunos.append(tituloPage, turma)
 
-    cursando.onclick = async () => {
-        const turma = document.getElementById('turma')
-        const statusAluno = await statusAlunoLion('Cursando')
-        const alunoStatus = statusAluno.alunos
-
-        const cardAluno = alunoStatus.map(function (aluno) {
-            if (aluno.sigla == sigla) {
-                const card = criarAluno(aluno)
-                return card
-            }
-        })
-
-        const CardAlunoCursando = cardAluno.filter(function (alunoCursando) {
-            return alunoCursando !== undefined;
-        })
-
-            turma.replaceChildren(...CardAlunoCursando)
-            alunos.append(tituloPage, turma)
-        
-
-
-    }
+    
 }
 
 const carregarPagina = (indice) => {
