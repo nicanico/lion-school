@@ -3,6 +3,7 @@
 ## Sobre o Projeto
 
 <br>
+
 O Projeto Lion School foi criado com a proposta de integralizar os conhecimentos adquiridos nas aulas de PWFE (Programação Web Front End) e PWBE (Programação Web Back End), seu intuito era montar uma aplicação desktop com responsividade com base em características de design no figma, fornecer e exibir dados dos alunos da instituição, até o momento temos três telas:
 
 <br>
@@ -28,7 +29,6 @@ Clicando neles temos a página seguinte que exibe todos os alunos do curso escol
 Após escolher um aluno podemos ver seus dados na última pagina, ela exibe especificamente seu nome, foto e um gráfico contendo suas notas conforme as matérias cursadas feito com a biblioteca Chart.js. A cor de cada barra varia com base em suas notas.
 
 <br>
-<br>
 
 ## Tecnologias utilizadas
 
@@ -39,7 +39,6 @@ Após escolher um aluno podemos ver seus dados na última pagina, ela exibe espe
 - Chart.js
 - Figma
 
-<br>
 <br>
 
 ## Deploy
@@ -53,7 +52,6 @@ Realizado com o [Cyclic](https://www.cyclic.sh/)
 Realizado com o [Vercel](https://vercel.com/)
 
 <br>
-<br>
 
 ## Repositorios
 
@@ -65,7 +63,6 @@ Realizado com o [Vercel](https://vercel.com/)
 
 [Repositorio Geral](https://github.com/AndreLuisConstantino/Project-Lion-School) - versão descontinuada
 
-<br>
 <br>
 
 ## Colaboradores
